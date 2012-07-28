@@ -1,0 +1,85 @@
+BEGIN -
+    active: true
+    a: あ
+    i: い
+    u: う
+    e: え
+    o: お
+END
+
+BEGIN k
+    active: true
+    ka: か
+    ki: き
+    ku: く
+    ke: け
+    ko: こ
+END
+
+BEGIN s
+    active: true
+    sa: さ
+    shi: し
+    su: す
+    se: せ
+    so: そ
+END
+
+BEGIN t
+    active: true
+    ta: た
+    chi: ち
+    tsu: つ
+    te: て
+    to: と
+END
+
+BEGIN n
+    active: false
+    na: な
+    ni: に
+    nu: ぬ
+    ne: ね
+    no: の
+END
+
+BEGIN h
+    active: false
+    ha: は
+    hi: ひ
+    hu: ふ
+    he: へ
+    ho: ほ
+END
+
+BEGIN m
+    active: false
+    ma: ま
+    mi: み
+    mu: む
+    me: め
+    mo: も
+END
+
+BEGIN y
+    active: false
+    ya: や
+    yu: ゆ
+    yo: よ
+END
+
+BEGIN r
+    active: false
+    ra: ら
+    ri: り
+    ru: る
+    re: れ
+    ro: ろ
+END
+
+BEGIN w
+    active: false
+    wa: わ
+    wo: を
+    n: ん
+END
