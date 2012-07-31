@@ -1,0 +1,74 @@
+BEGIN k-
+    a:ア	
+    i:イ
+    u:ウ
+    e:エ
+    o:オ
+END
+
+BEGIN k-k
+    ka:カ
+    ki:キ
+    ku:ク
+    ke:ケ
+    ko:コ
+END
+
+BEGIN k-s
+    sa:サ
+    shi:シ
+    su:ス
+    se:セ
+    so:ソ
+END
+
+BEGIN k-t
+    ta:タ
+    chi:チ
+    tsu:ツ
+    te:テ
+    to:ト
+END
+
+BEGIN k-n
+    na:ナ
+    ni:ニ
+    nu:ヌ
+    ne:ネ
+    no:ノ
+END
+
+BEGIN k-h
+    ha:ハ
+    hi:ヒ
+    hu:フ
+    he:ヘ
+    ho:ホ
+END
+
+BEGIN k-m
+    ma:マ
+    mi:ミ
+    mu:ム
+    me:メ
+    mo:モ
+END
+
+BEGIN k-y
+    ya:ヤ
+    yu:ユ
+    yo:ヨ
+END
+
+BEGIN k-r
+    ra:ラ
+    ri:リ
+    ru:ル
+    re:レ
+    ro:ロ
+END
+
+BEGIN k-w
+    wa:ワ
+    wo:ヲ
+END

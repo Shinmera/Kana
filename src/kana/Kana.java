@@ -34,7 +34,7 @@ import java.util.*;
 public class Kana{
     public static final Random random = new Random();
     private Interface UI;
-    private HashMap<String,Set> sets;
+    private TreeMap<String,Set> sets;
     private Timer timer;
     private boolean started = false;
     private boolean loop = false,repeatWrong = true;
@@ -49,11 +49,12 @@ public class Kana{
     }
     
     public Kana(List<String> args){
-        sets = new HashMap<String,Set>();
+        sets = new TreeMap<String,Set>();
         timer = new Timer();
         if(args.contains("nogui")) UI = new Console(this);
         else                       UI = new Graphical(this);
         load("/sets/hiragana");
+        load("/sets/katakana");
         timer.start();
     }
     

@@ -1,4 +1,4 @@
-BEGIN -
+BEGIN h-
     active: true
     a: あ
     i: い
@@ -7,7 +7,7 @@ BEGIN -
     o: お
 END
 
-BEGIN k
+BEGIN h-k
     active: true
     ka: か
     ki: き
@@ -16,7 +16,7 @@ BEGIN k
     ko: こ
 END
 
-BEGIN s
+BEGIN h-s
     active: true
     sa: さ
     shi: し
@@ -25,7 +25,7 @@ BEGIN s
     so: そ
 END
 
-BEGIN t
+BEGIN h-t
     active: true
     ta: た
     chi: ち
@@ -34,7 +34,7 @@ BEGIN t
     to: と
 END
 
-BEGIN n
+BEGIN h-n
     active: false
     na: な
     ni: に
@@ -43,7 +43,7 @@ BEGIN n
     no: の
 END
 
-BEGIN h
+BEGIN h-h
     active: false
     ha: は
     hi: ひ
@@ -52,7 +52,7 @@ BEGIN h
     ho: ほ
 END
 
-BEGIN m
+BEGIN h-m
     active: false
     ma: ま
     mi: み
@@ -61,14 +61,14 @@ BEGIN m
     mo: も
 END
 
-BEGIN y
+BEGIN h-y
     active: false
     ya: や
     yu: ゆ
     yo: よ
 END
 
-BEGIN r
+BEGIN h-r
     active: false
     ra: ら
     ri: り
@@ -77,7 +77,7 @@ BEGIN r
     ro: ろ
 END
 
-BEGIN w
+BEGIN h-w
     active: false
     wa: わ
     wo: を
