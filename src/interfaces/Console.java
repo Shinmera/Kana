@@ -27,11 +27,16 @@ import kana.Kana;
 
 public class Console implements Interface{
     private Kana main;
+    private java.io.Console cons;
     //TODO: Actually implement this interface
     public Console(Kana main){
         this.main=main;
+        cons = System.console();
     }
 
     public void update() {}
+
+    public void initDone() {
+    }
 
 }

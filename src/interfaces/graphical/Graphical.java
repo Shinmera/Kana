@@ -131,13 +131,15 @@ public class Graphical extends JFrame implements Interface,ActionListener{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setTitle("Kana");
-        setVisible(true);
         
         input.requestFocus();
         input.requestFocusInWindow();
         flasher = new Flasher();
         flasher.start();
     }
+    
+
+    public void initDone() {setVisible(true);}
 
     public void actionPerformed(ActionEvent e) {
         String button = e.getActionCommand().trim();
@@ -282,7 +284,6 @@ public class Graphical extends JFrame implements Interface,ActionListener{
         }
     }
 }
-
 class AntialiasedLabel extends JLabel{
     public AntialiasedLabel(){super();}
     public AntialiasedLabel(String s){super(s);}

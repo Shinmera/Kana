@@ -25,4 +25,5 @@ package interfaces;
 
 public interface Interface {
     public void update();
+    public void initDone();
 }

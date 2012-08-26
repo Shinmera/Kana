@@ -44,11 +44,11 @@ public class Kana{
     private Symbol current;
     
     public static void main(String[] args){
-        List<String> argss = Arrays.asList(args);
-        Kana main = new Kana(argss);
+        Kana main = new Kana(Arrays.asList(args));
     }
     
     public Kana(List<String> args){
+        System.out.println("SYS>Starting...");
         sets = new TreeMap<String,Set>();
         timer = new Timer();
         if(args.contains("nogui")) UI = new Console(this);
@@ -56,6 +56,8 @@ public class Kana{
         load("/sets/hiragana");
         load("/sets/katakana");
         timer.start();
+        System.out.println("SYS>Startup complete.");
+        UI.initDone();
     }
     
     public boolean load(File f){
@@ -102,7 +104,7 @@ public class Kana{
                 }
             }
             buf.close();
-            System.out.println("Currently "+sets.size()+" sets loaded.");
+            System.out.println("SYS>Currently "+sets.size()+" sets loaded.");
         } catch (IOException ex) {
             ex.printStackTrace();
             return false;
@@ -111,7 +113,7 @@ public class Kana{
     }
     
     public void start(){
-        System.out.println("Starting...");
+        System.out.println("SYS>Starting...");
         
         generateNewSet();
         
@@ -192,7 +194,7 @@ public class Kana{
     
     
     public void addSet(Set set){
-        System.out.println("Added set '"+set.getName()+"'"+((set.isActive())?"(active)":"")+", contains "+set.getSymbols().size()+" symbols.");
+        System.out.println("SYS>Added set '"+set.getName()+"'"+((set.isActive())?"(active)":"")+", contains "+set.getSymbols().size()+" symbols.");
         sets.put(set.getName(),set);
     }
     public void setLooping(boolean loop){this.loop=loop;}
