@@ -34,7 +34,7 @@ import java.util.*;
 public class Kana{
     public static final Random random = new Random();
     private Interface UI;
-    private TreeMap<String,Set> sets;
+    private TreeMap<String,Category> cats;
     private Timer timer;
     private boolean started = false;
     private boolean loop = false,repeatWrong = true;
@@ -49,12 +49,13 @@ public class Kana{
     
     public Kana(List<String> args){
         System.out.println("SYS>Starting...");
-        sets = new TreeMap<String,Set>();
+        cats = new TreeMap<String,Category>();
         timer = new Timer();
         if(args.contains("nogui")) UI = new Console(this);
         else                       UI = new Graphical(this);
         load("/sets/hiragana");
         load("/sets/katakana");
+        load("/sets/kanji 1-96");
         timer.start();
         System.out.println("SYS>Startup complete.");
         UI.initDone();
@@ -62,7 +63,7 @@ public class Kana{
     
     public boolean load(File f){
         try{
-            return load(new FileInputStream(f));
+            return load(new FileInputStream(f),f.getName());
         }catch(FileNotFoundException ex){
             ex.printStackTrace();
             return false;
@@ -71,11 +72,11 @@ public class Kana{
     
     public boolean load(String resource){
         InputStream res = Kana.class.getResourceAsStream(resource);
-        if(res!=null)return load(res);
+        if(res!=null)return load(res,new File(resource).getName());
         else         return false;
     }
     
-    public boolean load(InputStream s){
+    public boolean load(InputStream s,String category){
         try {
             BufferedReader buf = new BufferedReader(
                                  new InputStreamReader(s,Charset.forName("UTF-8")));
@@ -96,7 +97,7 @@ public class Kana{
                 }
                 
                 if(line.equals("END")){
-                    Set set = new Set(name,map);
+                    Set set = new Set(name,category,map);
                     if((set.isKey("active"))&&(set.get("active").contains("true"))) set.setActive(true);
                     else                                                           set.setActive(false);
                     if(set.isKey("active"))set.remove("active");
@@ -104,7 +105,6 @@ public class Kana{
                 }
             }
             buf.close();
-            System.out.println("SYS>Currently "+sets.size()+" sets loaded.");
         } catch (IOException ex) {
             ex.printStackTrace();
             return false;
@@ -176,17 +176,17 @@ public class Kana{
         List<Symbol> keys = new ArrayList(map.keySet());
         Collections.shuffle(keys);
         current = new Symbol("");
-        total = new Set("all",map);
-        right = new Set("right");
-        wrong = new Set("wrong");
+        total = new Set("all","$INT$",map);
+        right = new Set("right","$INT$");
+        wrong = new Set("wrong","$INT$");
         currentKeys = keys.iterator();
     }
     
     public void generateNewSet(){
         HashMap<Symbol,Symbol> map = new HashMap<Symbol,Symbol>();
-        for(String name : sets.keySet()){
-            if(sets.get(name).isActive()){
-                map.putAll(sets.get(name).getSymbols());
+        for(Category cat : getCategories()){
+            for(Set set : cat.getSets()){
+                if(set.isActive())map.putAll(set.getSymbols());
             }
         }
         generateNewSet(map);
@@ -194,14 +194,16 @@ public class Kana{
     
     
     public void addSet(Set set){
+        if(!cats.containsKey(set.getCategory()))
+            cats.put(set.getCategory(), new Category(set.getCategory()));
+        cats.get(set.getCategory()).addSet(set);
         System.out.println("SYS>Added set '"+set.getName()+"'"+((set.isActive())?"(active)":"")+", contains "+set.getSymbols().size()+" symbols.");
-        sets.put(set.getName(),set);
     }
     public void setLooping(boolean loop){this.loop=loop;}
     public void setRepeatWrong(boolean repeat){repeatWrong=repeat;}
     public void setMaxAttempts(int attempts){maxAttempts=attempts;}
     
-    public Set[] getSets(){return sets.values().toArray(new Set[sets.size()]);}
+    public Category[] getCategories(){return cats.values().toArray(new Category[cats.size()]);}
     public int getTotalAmount(){return total.size();}
     public int getRightAmount(){return right.size();}
     public int getWrongAmount(){return wrong.size();}

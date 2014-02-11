@@ -1,4 +1,4 @@
-BEGIN h-
+BEGIN - row
     active: true
     a: あ
     i: い
@@ -7,7 +7,7 @@ BEGIN h-
     o: お
 END
 
-BEGIN h-k
+BEGIN k row
     active: true
     ka: か
     ki: き
@@ -16,7 +16,7 @@ BEGIN h-k
     ko: こ
 END
 
-BEGIN h-s
+BEGIN s row
     active: true
     sa: さ
     shi: し
@@ -25,7 +25,7 @@ BEGIN h-s
     so: そ
 END
 
-BEGIN h-t
+BEGIN t row
     active: true
     ta: た
     chi: ち
@@ -34,7 +34,7 @@ BEGIN h-t
     to: と
 END
 
-BEGIN h-n
+BEGIN n row
     active: false
     na: な
     ni: に
@@ -43,7 +43,7 @@ BEGIN h-n
     no: の
 END
 
-BEGIN h-h
+BEGIN h row
     active: false
     ha: は
     hi: ひ
@@ -52,7 +52,7 @@ BEGIN h-h
     ho: ほ
 END
 
-BEGIN h-m
+BEGIN m row
     active: false
     ma: ま
     mi: み
@@ -61,14 +61,14 @@ BEGIN h-m
     mo: も
 END
 
-BEGIN h-y
+BEGIN y row
     active: false
     ya: や
     yu: ゆ
     yo: よ
 END
 
-BEGIN h-r
+BEGIN r row
     active: false
     ra: ら
     ri: り
@@ -77,7 +77,7 @@ BEGIN h-r
     ro: ろ
 END
 
-BEGIN h-w
+BEGIN w row
     active: false
     wa: わ
     wo: を

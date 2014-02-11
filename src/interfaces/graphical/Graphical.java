@@ -31,6 +31,7 @@ import java.io.*;
 import java.util.ArrayList;
 import javax.swing.*;
 import kana.Answer;
+import kana.Category;
 import kana.Kana;
 import kana.Set;
 import kana.Symbol;
@@ -151,7 +152,7 @@ public class Graphical extends JFrame implements Interface,ActionListener{
         }else if(button.equals("Save...")){
             SetChooser chooser = new SetChooser(this,main);
             chooser.setVisible(true);
-            ArrayList<String> sets = chooser.getSelected();
+            ArrayList<Set> sets = chooser.getSelected();
             if(sets!=null){
                 if(fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION){
                     try {
@@ -161,16 +162,14 @@ public class Graphical extends JFrame implements Interface,ActionListener{
                                              new OutputStreamWriter(
                                              new FileOutputStream(file),"UTF-8"));
                     
-                        for(Set set : main.getSets()){
-                            if(sets.contains(set.getName())){
-                                writer.println("BEGIN "+set.getName());
-                                writer.println("    active: false");
-                                for(Symbol key : set.getSymbols().keySet()){
-                                    writer.println("    "+key.toString()+": "+set.get(key).toString());
-                                }
-                                writer.println("END");
-                                writer.println();
+                        for(Set set : sets){
+                            writer.println("BEGIN "+set.getName());
+                            writer.println("    active: false");
+                            for(Symbol key : set.getSymbols().keySet()){
+                                writer.println("    "+key.toString()+": "+set.get(key).toString());
                             }
+                            writer.println("END");
+                            writer.println();
                         }
                         writer.flush();
                         writer.close();
@@ -192,17 +191,6 @@ public class Graphical extends JFrame implements Interface,ActionListener{
         }else if(button.equals("Choose sets...")){
             SetChooser chooser = new SetChooser(this,main);
             chooser.setVisible(true);
-            ArrayList<String> sets = chooser.getSelected();
-            if(sets!=null){
-                for(Set set : main.getSets()){
-                    if(sets.contains(set.getName())){
-                        System.out.println("Selecting: "+set.getName());
-                        set.setActive(true);
-                    }else{
-                        set.setActive(false);
-                    }
-                }
-            }
         }else if(button.equals("Add set...")){
             SetCreator creator = new SetCreator(this);
             creator.setVisible(true);

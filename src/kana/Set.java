@@ -28,11 +28,13 @@ import java.util.HashMap;
 public class Set {
     private HashMap<Symbol,Symbol> symbols;
     private String name;
+    private String category;
     private boolean active = false;
     
-    public Set(String name){this(name,new HashMap<Symbol,Symbol>());}
-    public Set(String name,HashMap<Symbol,Symbol> symbols){
+    public Set(String name,String category){this(name,category,new HashMap<Symbol,Symbol>());}
+    public Set(String name,String category,HashMap<Symbol,Symbol> symbols){
         this.name=name;
+        this.category=category;
         this.symbols=symbols;
     }
     
@@ -73,7 +75,9 @@ public class Set {
         return null;
     }
     public String getName(){return name;}
+    public String getCategory(){return category;}
     public HashMap<Symbol,Symbol> getSymbols(){return symbols;}
     public boolean isActive(){return active;}
     public int size(){return symbols.size();}
+    public String toString(){return getName();}
 }

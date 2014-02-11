@@ -1,4 +1,4 @@
-BEGIN k-
+BEGIN - row
     a:ア	
     i:イ
     u:ウ
@@ -6,7 +6,7 @@ BEGIN k-
     o:オ
 END
 
-BEGIN k-k
+BEGIN k row
     ka:カ
     ki:キ
     ku:ク
@@ -14,7 +14,7 @@ BEGIN k-k
     ko:コ
 END
 
-BEGIN k-s
+BEGIN s row
     sa:サ
     shi:シ
     su:ス
@@ -22,7 +22,7 @@ BEGIN k-s
     so:ソ
 END
 
-BEGIN k-t
+BEGIN t row
     ta:タ
     chi:チ
     tsu:ツ
@@ -30,7 +30,7 @@ BEGIN k-t
     to:ト
 END
 
-BEGIN k-n
+BEGIN n row
     na:ナ
     ni:ニ
     nu:ヌ
@@ -38,7 +38,7 @@ BEGIN k-n
     no:ノ
 END
 
-BEGIN k-h
+BEGIN h row
     ha:ハ
     hi:ヒ
     hu:フ
@@ -46,7 +46,7 @@ BEGIN k-h
     ho:ホ
 END
 
-BEGIN k-m
+BEGIN m row
     ma:マ
     mi:ミ
     mu:ム
@@ -54,13 +54,13 @@ BEGIN k-m
     mo:モ
 END
 
-BEGIN k-y
+BEGIN y row
     ya:ヤ
     yu:ユ
     yo:ヨ
 END
 
-BEGIN k-r
+BEGIN r row
     ra:ラ
     ri:リ
     ru:ル
@@ -68,7 +68,7 @@ BEGIN k-r
     ro:ロ
 END
 
-BEGIN k-w
+BEGIN w row
     wa:ワ
     wo:ヲ
 END

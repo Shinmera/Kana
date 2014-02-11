@@ -19,7 +19,7 @@ import kana.Set;
 import kana.Symbol;
 
 public class SetCreator extends JDialog implements ActionListener{
-        JTextField name;
+        JTextField name,category;
         JPanel fieldsPanel;
         HashMap<JTextField,JTextField> fields = new HashMap<JTextField,JTextField>();
         boolean ok = false;
@@ -31,7 +31,9 @@ public class SetCreator extends JDialog implements ActionListener{
             layout.setBorder(new EmptyBorder(10, 10, 10, 10) );
             
             name = new JTextField("Name");
+            category = new JTextField("Category");
             name.setMaximumSize(new Dimension(100000,20));
+            category.setMaximumSize(new Dimension(100000,20));
             
             fieldsPanel = new JPanel();
             fieldsPanel.setLayout(new GridLayout(0,2));
@@ -60,6 +62,7 @@ public class SetCreator extends JDialog implements ActionListener{
             buttons.add(ok);
             
             layout.add(name);
+            layout.add(category);
             layout.add(fieldsPanel);
             layout.add(Box.createVerticalGlue());
             layout.add(buttons);
@@ -90,7 +93,7 @@ public class SetCreator extends JDialog implements ActionListener{
                     }
                 }
                 if(map.isEmpty())return null;
-                else             return new Set(name.getText(),map);
+                else             return new Set(name.getText(),category.getText(),map);
             }else return null;
         }
         
